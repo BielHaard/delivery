@@ -11,7 +11,9 @@ import javax.persistence.*;
 @NoArgsConstructor
 @Table(name = "entrega")
 public class Entrega {
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String endereco;

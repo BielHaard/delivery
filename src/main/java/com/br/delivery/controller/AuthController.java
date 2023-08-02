@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 
 @RestController
-@RequestMapping(APIPaths.USUARIO)
+@RequestMapping(APIPaths.LOGIN)
 public class AuthController {
 
     private final UsuarioService usuarioService;
@@ -26,9 +26,9 @@ public class AuthController {
         this.bCryptPasswordEncoder = bCryptPasswordEncoder;
     }
 
-    @PostMapping("/login")
+    @PostMapping
     @ResponseBody
-    public String login(@RequestBody UsuarioDTO usuarioDTO) {
+    public String login(@RequestBody UsuarioDTO usuarioDTO) throws Exception {
         String username = usuarioDTO.getUsername();
         String password = usuarioDTO.getPassword();
 

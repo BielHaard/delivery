@@ -23,17 +23,17 @@ public class JwtUtil {
                 .compact();
     }
 
-    public String extractUsername(String token) {
+    public String extractUsername(String token, String jwtSecret) {
         Claims claims = Jwts.parser()
-                .setSigningKey(token)
+                .setSigningKey(jwtSecret)
                 .parseClaimsJws(token)
                 .getBody();
         return claims.getSubject();
     }
 
-    public boolean isTokenValid(String token) {
+    public boolean isTokenValid(String token, String jwtSecret) {
         try {
-            Jwts.parser().setSigningKey(token).parseClaimsJws(token);
+            Jwts.parser().setSigningKey(jwtSecret).parseClaimsJws(token);
             return true;
         } catch (Exception e) {
             return false;

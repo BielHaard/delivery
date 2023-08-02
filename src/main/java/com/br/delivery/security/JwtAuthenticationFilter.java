@@ -14,6 +14,8 @@ import java.io.IOException;
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final JwtUtil jwtUtil;
 
+    private String jwtSecret = "ybOaeBsRI0dfZp9BcJokI2bvmucPbYvGfcX+HlrZj4Zn+IkhF0kySeNkpqdi/kNJX2N3eiB/MV3Y85ofDJAMaA==";
+
     public JwtAuthenticationFilter(JwtUtil jwtUtil) {
         this.jwtUtil = jwtUtil;
     }
@@ -23,8 +25,8 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
             throws ServletException, IOException {
         String token = extractTokenFromHeader(request);
 
-        if (token != null && jwtUtil.isTokenValid(token)) {
-            String username = jwtUtil.extractUsername(token);
+        if (token != null && jwtUtil.isTokenValid(token, jwtSecret)) {
+            String username = jwtUtil.extractUsername(token, jwtSecret);
             Authentication authentication = new UsernamePasswordAuthenticationToken(username, null, null);
             SecurityContextHolder.getContext().setAuthentication(authentication);
         }

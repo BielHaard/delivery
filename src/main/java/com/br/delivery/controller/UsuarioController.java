@@ -9,7 +9,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(APIPaths.USUARIO)
+@RequestMapping(APIPaths.SIGNUP)
 public class UsuarioController {
     private final UsuarioService usuarioService;
     private final BCryptPasswordEncoder passwordEncoder;
@@ -20,7 +20,7 @@ public class UsuarioController {
         this.passwordEncoder = passwordEncoder;
     }
 
-    @PostMapping("/registrar")
+    @PostMapping
     @ResponseBody
     public String signUp(@RequestBody UsuarioDTO usuarioDTO) {
         Usuario usuario = new Usuario();
