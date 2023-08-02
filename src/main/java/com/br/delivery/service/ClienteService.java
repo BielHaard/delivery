@@ -1,6 +1,5 @@
 package com.br.delivery.service;
 
-// ClienteService.java
 import com.br.delivery.entity.Cliente;
 import com.br.delivery.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;

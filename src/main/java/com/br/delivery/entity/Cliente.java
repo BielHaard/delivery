@@ -1,6 +1,5 @@
 package com.br.delivery.entity;
 
-// Cliente.java
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

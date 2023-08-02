@@ -1,6 +1,5 @@
 package com.br.delivery.service;
 
-// PedidoService.java
 import com.br.delivery.entity.Cliente;
 import com.br.delivery.entity.Pedido;
 import com.br.delivery.repository.PedidoRepository;
